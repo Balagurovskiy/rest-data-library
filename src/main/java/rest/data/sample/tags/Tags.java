@@ -9,18 +9,19 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import rest.data.sample.books.Books;
 import rest.data.sample.model.BaseEntity;
 
 
 @Entity
 @Table(name = "tags")
-public class Tags  extends BaseEntity{
+public class Tags extends BaseEntity{
 
-	@ManyToMany
-    @JoinTable(name = "book_tag", 
-	    joinColumns = { @JoinColumn(name = "tag_Id") }, 
-	    inverseJoinColumns = { @JoinColumn(name = "book_id") })
+	@JsonBackReference
+	@ManyToMany(mappedBy = "tags")
     private Set<Books> books = new HashSet<Books>();
 	
 	

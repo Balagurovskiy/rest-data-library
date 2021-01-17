@@ -3,26 +3,28 @@ package rest.data.sample.authors;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import rest.data.sample.books.Books;
 import rest.data.sample.model.BaseEntity;
-
-import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "authors")
 public class Authors extends BaseEntity{
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "author_book", 
-	    joinColumns = { @JoinColumn(name = "author_Id") }, 
-	    inverseJoinColumns = { @JoinColumn(name = "book_id") })
+	/*
+	 * Json...Reference linkage cause jackson exception 
+	 * on POST method - unrecognized json type (error 415)
+	 */
+//	@JsonIgnore
+	@JsonBackReference
+	@ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)
     private Set<Books> books = new HashSet<Books>();
 
 	

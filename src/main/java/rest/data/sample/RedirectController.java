@@ -14,4 +14,7 @@ public class RedirectController {
     public String index(){
         return "index";
     }
+    
+//    @RequestMapping(path = "/", produces = "application/json; charset=UTF-8")
+//    @ResponseBody
 }

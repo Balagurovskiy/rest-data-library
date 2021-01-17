@@ -1,22 +1,22 @@
 package rest.data.sample;
 
 public class Response {
-	private String status;
+	private String description;
 	private Object data;
 	
 	public Response(){}
 	
-	public Response(String status, Object data){
-		this.status = status;
+	public Response(String description, Object data){
+		this.description = description;
 		this.data = data;
 	}
 
 	public String getStatus() {
-		return status;
+		return description;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(String description) {
+		this.description = description;
 	}
 
 	public Object getData() {
