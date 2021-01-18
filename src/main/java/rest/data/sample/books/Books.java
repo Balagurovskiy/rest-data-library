@@ -31,26 +31,33 @@ import rest.data.sample.tags.Tags;
 @Entity
 @Table(name = "books")
 public class Books extends BaseEntity{
+	
 	@JsonManagedReference
 	@ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "author_book", 
-	    joinColumns = { @JoinColumn(name = "book_id") }, 
-	    inverseJoinColumns = { @JoinColumn(name = "author_id") })
+    @JoinTable(
+    		name = "author_book", 
+    		joinColumns = { @JoinColumn(name = "book_id") }, 
+    		inverseJoinColumns = { @JoinColumn(name = "author_id") }
+    		)
     private Set<Authors> authors = new HashSet<Authors>();
 	
 	@JsonManagedReference
 	@ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "book_tag", 
-	    joinColumns = { @JoinColumn(name = "book_id") }, 
-	    inverseJoinColumns = { @JoinColumn(name = "tag_id") })
+    @JoinTable(
+    		name = "book_tag", 
+    		joinColumns = { @JoinColumn(name = "book_id") }, 
+    		inverseJoinColumns = { @JoinColumn(name = "tag_id") }
+    		)
     private Set<Tags> tags = new HashSet<Tags>();
 	
+
+	@JsonBackReference
 	@OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
-	@JsonManagedReference
 	private List<Reviews> reviews;
 	
     @Column(name = "release_date", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
+//    @LastModifiedDate
     private Date releaseDate;
     
 	public List<Reviews> getReviews() {

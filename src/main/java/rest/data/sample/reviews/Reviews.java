@@ -21,12 +21,12 @@ public class Reviews extends BaseEntity{
 	@JoinColumn(name = "user_id")
 	private Users user;
 	
-	@JsonBackReference
+
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "book_id")
 	private Books book;
 	
- 
 	public Users getUser() {
 		return user;
 	}

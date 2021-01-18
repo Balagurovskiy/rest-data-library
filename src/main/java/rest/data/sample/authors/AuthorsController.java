@@ -43,7 +43,9 @@ public class AuthorsController {
 //	@GetMapping(value = "/find={str}")
 //	public Response findBookWithSuchStrInName(@PathVariable String str) {
 	
-	
+    
+//  @RequestMapping(path = "/", produces = "application/json; charset=UTF-8")
+//  @ResponseBody
 	
 	@Autowired
 	private AuthorsService _authorsService;
@@ -54,17 +56,19 @@ public class AuthorsController {
 							_authorsService.getAllAuthors())
 				);
 	}
+	@GetMapping(value = "/name-contains={str}")
+	public Response findAuthorWithSuchStrInName(@PathVariable(value = "str") String str) {
+		return (new Response(
+							"Find author that contains " + str + " in name", 
+							_authorsService.findBookWithNameThatContains(str)
+							)
+				);
+	}
 	
 	@PostMapping(value = "/works", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Response getAllAuthorWorks(@RequestBody Request author) {
-		Long _id = 0L;
-		String _name = "";
-		if(author != null) {
-			_id = author.getId();
-			_name = (String) author.getData();
-		}
-		return (new Response("Collection of books written by " + _name, 
-							_authorsService.getAllBookByAuthorsId(_id))
+		return (new Response("Collection of books written by " + (String) author.getData(), 
+							_authorsService.getAllBookByAuthorsId( author.getId()))
 				);
 	}
 }

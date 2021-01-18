@@ -21,4 +21,8 @@ public class AuthorsService {
 	public Iterable<Books> getAllBookByAuthorsId(Long id){
 		return _booksRepository.findByAuthorsId(id);
 	}
+	
+	public Iterable<Authors> findBookWithNameThatContains(String str) {
+		return _authorsRepository.findByNameContaining(str);
+	}
 }
