@@ -1,26 +1,26 @@
 # rest-data-sample
 <ul>
-  <li>Authors controller #"/library/authors"#<ul>
-                        <li>#"/all"# (GET) - list of all author entities</li>
-                        <li>#"/name-contains={str}"# (GET) - list of author entities that have 'str' in name property</li>
-                        <li>#"/works"# (POST:Request with author id and name) - list of book entities that are linked with author</li>
+  <li>Authors controller <b>"/library/authors"</b><ul>
+                        <li><b>"/all"</b> (GET) - list of all author entities</li>
+                        <li><b>"/name-contains={str}"</b> (GET) - list of author entities that have 'str' in name property</li>
+                        <li><b>"/works"</b> (POST:Request with author id and name) - list of book entities that are linked with author</li>
                       </ul>
   </li>
   
-  <li>Books controller #"/library/books"#<ul>
-                        <li>#"/all"# (GET) - list of all book entities</li>
-                        <li>#"/name-contains={str}"# (GET) - list of book entities in json that have 'str' in name property</li>
-                        <li>#"/released-between"# (GET) (RequestParam: from, to) - list of book entities with released date property between 'from' and 'to'</li>
-                        <li>#"/find"# (GET) (RequestParam: from, to, name) - list of book entities with released date property between 'from','to' and have 'str' in name property</li>
+  <li>Books controller #"/library/books"</b><ul>
+                        <li><b>"/all"</b> (GET) - list of all book entities</li>
+                        <li><b>"/name-contains={str}"</b> (GET) - list of book entities in json that have 'str' in name property</li>
+                        <li><b>"/released-between"</b> (GET) (RequestParam: from, to) - list of book entities with released date property between 'from' and 'to'</li>
+                        <li><b>"/find"</b> (GET) (RequestParam: from, to, name) - list of book entities with released date property between 'from','to' and have 'str' in name property</li>
                       </ul>
   </li>
   
-  <li>Tags controller #"/library/tags"# <ul>
-                        <li>#"/all"# (GET) - list of all tag entities</li>
-                        <li>#"/all-sort-name"# (GET) - list of all tag entities ordered by name property</li>
-                        <li>#"/books-by-tag"# (POST:List of requests with tags ids) - list of all book entities that linked with requested tags</li>
-                        <li>#"/authors-by-tag"# (POST:List of requests with tags ids) - list of all author entities that linked with requested tags in their books</li>
-                        <li>#"/books-by-tag-name/{bookName}"# (POST:List of requests with tags ids) - list of all book entities that linked with requested tags and have 'str' in name property</li>
+  <li>Tags controller <b>"/library/tags"</b> <ul>
+                        <li><b>"/all"</b> (GET) - list of all tag entities</li>
+                        <li><b>"/all-sort-name"</b> (GET) - list of all tag entities ordered by name property</li>
+                        <li><b>"/books-by-tag"</b> (POST:List of requests with tags ids) - list of all book entities that linked with requested tags</li>
+                        <li><b>"/authors-by-tag"</b> (POST:List of requests with tags ids) - list of all author entities that linked with requested tags in their books</li>
+                        <li><b>"/books-by-tag-name/{bookName}"</b> (POST:List of requests with tags ids) - list of all book entities that linked with requested tags and have 'str' in name property</li>
                       </ul>
   </li>
 </ul>
