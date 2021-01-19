@@ -1,4 +1,5 @@
 # rest-data-sample
+Simple rest web service with spring boot. Library with books,authors and tags.
 <ul>
   <li>Authors controller <b>"/library/authors"</b><ul>
                         <li><b>"/all"</b> (GET) - list of all author entities</li>
