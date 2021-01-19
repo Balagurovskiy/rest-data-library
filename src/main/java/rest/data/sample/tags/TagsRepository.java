@@ -15,9 +15,10 @@ public interface TagsRepository extends CrudRepository<Tags, Long>{
 	public Iterable<Tags> findAll();
 	public Iterable<Tags> findAll(Sort sort);
 	
-	@Query("SELECT b FROM Books b JOIN b.tags t WHERE t.id IN (:tag_ids)")
-	public Iterable<Books> findBooksByTags(@Param("tag_ids") Collection<Long> tagIds);
+	@Query("SELECT b FROM Books b JOIN b.tags t WHERE t.id IN (:tag_ids) AND b.name LIKE %:book_name%")
+	public Iterable<Books> findBooksByTagsAndName(@Param("book_name") String bookName,
+													@Param("tag_ids") Collection<Long> tagIds);
 }
 
 
-//@Modifying // use on update queries
+//@Modifying // use on write queries

@@ -11,7 +11,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import rest.data.sample.books.Books;
+import rest.data.sample.authors.Authors;
+
 
 @Repository
 public class SearchByTagTransaction {
@@ -20,17 +21,17 @@ public class SearchByTagTransaction {
 	EntityManager entityManager;
 	
 	@Transactional
-	public List<Books> findBooksByTags(Collection<Long> tagIds){
-		String jpqlBooksByTagsId = "SELECT b FROM Books b WHERE b.id IN (:b_ids)";
-		Query query = entityManager.createQuery(jpqlBooksByTagsId, Books.class);
-		query.setParameter("b_ids", getBooksId( tagIds ).stream()
+	public List<Authors> findAuthorsByTags(Collection<Long> tagIds){
+		String jpqlBooksByTagsId = "SELECT a FROM Authors a WHERE a.id IN (:a_ids)";
+		Query query = entityManager.createQuery(jpqlBooksByTagsId, Authors.class);
+		query.setParameter("a_ids", getAuthorsId( tagIds ).stream()
 														.map(id->Long.valueOf(id))
 														.collect(Collectors.toList()) );
-		return (List<Books>) query.getResultList();
+		return (List<Authors>) query.getResultList();
 	}
 	
-	private List<Integer> getBooksId(Collection<Long> tagIds){
-		String jpqlBooksIdByTagsId = "SELECT bt.book_id FROM book_tag AS bt WHERE bt.tag_id IN (:t_ids)";
+	private List<Integer> getAuthorsId(Collection<Long> tagIds){
+		String jpqlBooksIdByTagsId = "SELECT ab.author_id FROM author_book AS ab JOIN book_tag AS bt ON ab.book_id = bt.book_id WHERE bt.tag_id IN (:t_ids)";
 		Query query = entityManager.createNativeQuery(jpqlBooksIdByTagsId);
 		query.setParameter("t_ids", tagIds);
 		return (List<Integer>) query.getResultList();
