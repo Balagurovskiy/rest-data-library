@@ -24,5 +24,21 @@ Simple rest web service with spring boot. Library with books,authors and tags.
                         <li><b>"/books-by-tag-name/{bookName}"</b> (POST:List of requests with tags ids) - list of all book entities that linked with requested tags and have 'str' in name property</li>
                       </ul>
   </li>
+    <li><a href="src/main/java/rest/data/sample/users/">Users controller</a> <b>"/library/users"</b> <ul>
+                        <li><b>"/all"</b> (GET) - list of all user entities</li>
+                        <li><b>"/name-contains/{str}/"</b> (GET) - list of all user entities that have 'str' in name property</li>
+                      </ul>
+      <li><a href="src/main/java/rest/data/sample/revies/">Reviews controller</a> <b>"/library/reviews"</b> <ul>
+                        <li><b>"/by-user/{user_id}/"</b> (GET) - list of all reviews by user id</li>
+                        <li><b>"/by-book/{book_id}/"</b> (GET) - list of all reviews by book id</li>
+                      </ul>
+  </li>
+  
 </ul>
+# entity relationship model
 <img src="diag.png" width="800" height="500"/>
+# tests
+ <ul>
+      <li><a href="src/test/java/rest/data/sample/AuthorsControllerTests.java">Authors controller test</a></li>
+      <li><a href="src/test/java/rest/data/sample/BooksControllerTests.java">Books controller test</a></li>
+</ul>
