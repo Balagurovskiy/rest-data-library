@@ -28,6 +28,7 @@ Simple rest web service with spring boot. Library with books,authors and tags.
                         <li><b>"/all"</b> (GET) - list of all user entities</li>
                         <li><b>"/name-contains/{str}/"</b> (GET) - list of all user entities that have 'str' in name property</li>
                       </ul>
+  </li>
       <li><a href="src/main/java/rest/data/sample/revies/">Reviews controller</a> <b>"/library/reviews"</b> <ul>
                         <li><b>"/by-user/{user_id}/"</b> (GET) - list of all reviews by user id</li>
                         <li><b>"/by-book/{book_id}/"</b> (GET) - list of all reviews by book id</li>
