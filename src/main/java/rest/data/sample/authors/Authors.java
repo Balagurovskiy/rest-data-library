@@ -19,7 +19,7 @@ import rest.data.sample.model.BaseEntity;
 public class Authors extends BaseEntity{
 	
 	/*
-	 * Json...Reference linkage cause jackson exception 
+	 * entity relations cause jackson exception 
 	 * on POST method - unrecognized json type (error 415)
 	 */
 //	@JsonIgnore

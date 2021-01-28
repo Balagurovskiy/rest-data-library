@@ -11,11 +11,11 @@ public class Response {
 		this.data = data;
 	}
 
-	public String getStatus() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setStatus(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

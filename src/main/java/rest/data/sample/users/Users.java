@@ -1,6 +1,6 @@
 package rest.data.sample.users;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -17,12 +17,12 @@ public class Users extends BaseEntity {
 
 	@OneToMany(mappedBy = "user")
 	@JsonBackReference
-	private List<Reviews> reviews;
+	private Set<Reviews> reviews;
 
-	public List<Reviews> getReviews() {
+	public Set<Reviews> getReviews() {
 		return reviews;
 	}
-	public void setReviews(List<Reviews> reviews) {
+	public void setReviews(Set<Reviews> reviews) {
 		this.reviews = reviews;
 	}
 	

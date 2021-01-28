@@ -1,12 +1,11 @@
 package rest.data.sample.reviews;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import rest.data.sample.books.Books;
@@ -16,13 +15,15 @@ import rest.data.sample.users.Users;
 @Entity
 @Table(name = "reviews")
 public class Reviews extends BaseEntity{
-	@JsonManagedReference
+//	@JsonManagedReference
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private Users user;
 	
 
-	@JsonManagedReference
+//	@JsonManagedReference
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "book_id")
 	private Books book;

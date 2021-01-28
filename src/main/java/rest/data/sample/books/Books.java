@@ -1,5 +1,6 @@
 package rest.data.sample.books;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -53,18 +54,18 @@ public class Books extends BaseEntity{
 
 	@JsonBackReference
 	@OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
-	private List<Reviews> reviews;
+	private Set<Reviews> reviews;
 	
     @Column(name = "release_date", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 //    @LastModifiedDate
     private Date releaseDate;
     
-	public List<Reviews> getReviews() {
+	public Set<Reviews> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(List<Reviews> reviews) {
+	public void setReviews(Set<Reviews> reviews) {
 		this.reviews = reviews;
 	}
 
